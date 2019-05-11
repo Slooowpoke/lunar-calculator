@@ -5,7 +5,7 @@ const initialStateMock = {
   nextLunarPhase: null,
   currentLunarPhase: null,
   phaseForCurrentLocation: null,
-  ageInLunarYears: null,
+  ageInLunarYears: null
 };
 
 describe("lunar calculations reducer", () => {
