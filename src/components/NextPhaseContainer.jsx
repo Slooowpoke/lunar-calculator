@@ -9,7 +9,9 @@ class NextPhaseContainer extends React.Component {
     const { props } = this;
 
     const date = new Date();
-    const formattedDateString = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+    // Month needs re-assigning as Javascript dates start from 0.
+    const month = date.getMonth() + 1;
+    const formattedDateString = `${month}/${date.getDate()}/${date.getFullYear()}`;
     props.loadNextLunarPhase(formattedDateString);
   }
 
