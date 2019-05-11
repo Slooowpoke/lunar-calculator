@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import NextPhase from "./NextPhase";
 import { getNextLunarPhase } from "../actions/nextPhaseCalculations";
-import PropTypes from "prop-types";
 
 class NextPhaseContainer extends React.Component {
   componentDidMount() {
