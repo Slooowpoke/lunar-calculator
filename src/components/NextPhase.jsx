@@ -1,22 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const NextPhase = ({ nextPhaseDate, nextPhaseType }) => {
-  return (
-    <p>
-      {`The next lunar phase is ${nextPhaseDate}, it will be a ${nextPhaseType}`}
-    </p>
-  );
+const NextPhase = ({ date, phase }) => {
+  return <p>{`The next lunar phase is ${date}, it will be the ${phase}`}</p>;
 };
 
 NextPhase.propTypes = {
-  nextPhaseDate: PropTypes.string,
-  nextPhaseType: PropTypes.string
+  date: PropTypes.string,
+  phase: PropTypes.string
 };
 
 NextPhase.defaultProps = {
-  nextPhaseDate: "",
-  nextPhaseType: ""
+  date: "",
+  phase: ""
 };
 
 export default NextPhase;
