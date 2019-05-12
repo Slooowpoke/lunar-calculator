@@ -3,6 +3,13 @@ import { getGeoLocationSuccess } from "./currentPhaseCalculations";
 export const GET_PHASE_FOR_BIRTHDAY_REQUEST = "GET_PHASE_FOR_BIRTHDAY_REQUEST";
 export const GET_PHASE_FOR_BIRTHDAY_SUCCESS = "GET_PHASE_FOR_BIRTHDAY_SUCCESS";
 export const GET_PHASE_FOR_BIRTHDAY_FAILURE = "GET_PHASE_FOR_BIRTHDAY_FAILURE";
+export const RESET_PHASE_FOR_BIRTHDAY = "RESET_PHASE_FOR_BIRTHDAY";
+
+export function resetPhaseForBirthday() {
+  return {
+    type: RESET_PHASE_FOR_BIRTHDAY
+  };
+}
 
 export function getPhaseForBirthdaySuccess(body) {
   return {
