@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import PhaseForBirthdaySchema from "../form-schemas/PhaseForBirthdaySchema";
+import Button from "./ui/Button";
 
 const PhaseForBirthday = ({
   phase,
@@ -13,9 +14,9 @@ const PhaseForBirthday = ({
     return (
       <div>
         <p>{`The phase on your birthday was a ${phase} at ${percentage}`}</p>
-        <button onClick={resetPhaseForBirthday} type={"button"}>
+        <Button onClick={resetPhaseForBirthday} type="button">
           Click here to calculate a different date
-        </button>
+        </Button>
       </div>
     );
   }
@@ -37,9 +38,13 @@ const PhaseForBirthday = ({
           <div className="field-group">
             <Field name="date" type="date" />
             <br />
-            <ErrorMessage name="date" />
+            <ErrorMessage name="date" className="error-message" />
+            <br />
+            <br />
+            <Button type="submit">
+              Get phase for your birthday at your current location
+            </Button>
           </div>
-          <button type="submit">Get phase for current location</button>
         </Form>
       )}
     </Formik>
@@ -49,7 +54,8 @@ const PhaseForBirthday = ({
 PhaseForBirthday.propTypes = {
   phase: PropTypes.string,
   percentage: PropTypes.string,
-  fetchPhaseForDateOnLocation: PropTypes.func.isRequired
+  fetchPhaseForDateOnLocation: PropTypes.func.isRequired,
+  resetPhaseForBirthday: PropTypes.func.isRequired
 };
 
 PhaseForBirthday.defaultProps = {
