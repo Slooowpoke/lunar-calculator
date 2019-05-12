@@ -6,19 +6,20 @@ import CurrentPhase from "./CurrentPhase";
 import FormatDateToAmericanDateString from "../utils/FormatDateToAmericanDateString";
 
 class CurrentPhaseContainer extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+
     this.fetchCurrentPhaseForLocation = this.fetchCurrentPhaseForLocation.bind(
       this
     );
   }
 
-  fetchCurrentPhaseForLocation = () => {
+  fetchCurrentPhaseForLocation() {
     const { props } = this;
 
     const date = new Date();
     props.loadCurrentLunarPhase(FormatDateToAmericanDateString(date));
   }
-
 
   render() {
     const { phaseForCurrentLocation } = this.props;
