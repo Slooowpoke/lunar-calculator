@@ -1,4 +1,4 @@
-#Lunar Calculator
+# Lunar Calculator
 
 A lunar calculator using [the USNO API](https://aa.usno.navy.mil/data/docs/api.php)
 
