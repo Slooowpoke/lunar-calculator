@@ -51,8 +51,12 @@ export function getCurrentLunarPhase(date) {
     const { geolocation } = navigator;
     return geolocation.getCurrentPosition(position => {
       const { coords } = position;
-      dispatch(getGeoLocationSuccess(coords));
-      dispatch(getCurrentLunarPhaseRequest(date, coords));
+      const formattedPosition = {
+        latitude: coords.latitude,
+        longitude: coords.longitude
+      };
+      dispatch(getGeoLocationSuccess(formattedPosition));
+      dispatch(getCurrentLunarPhaseRequest(date, formattedPosition));
     });
   };
 }
