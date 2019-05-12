@@ -1,7 +1,10 @@
 import lunarCalculations from "../../reducers/lunarCalculations";
 import { GET_NEXT_PHASE_SUCCESS } from "../../actions/nextPhaseCalculations";
 import { GET_CURRENT_LUNAR_PHASE_SUCCESS } from "../../actions/currentPhaseCalculations";
-import { GET_PHASE_FOR_BIRTHDAY_SUCCESS } from "../../actions/phaseForBirthdayCalculations";
+import {
+  GET_PHASE_FOR_BIRTHDAY_SUCCESS,
+  RESET_PHASE_FOR_BIRTHDAY
+} from "../../actions/phaseForBirthdayCalculations";
 
 const initialStateMock = {
   nextLunarPhase: null,
@@ -334,6 +337,25 @@ describe("lunar calculations reducer", () => {
         phase: action.body.closestphase.phase,
         percentage: "100%"
       }
+    });
+  });
+
+  it("resets the phaseForBirthday on RESET_PHASE_FOR_BIRTHDAY", () => {
+    const action = {
+      type: RESET_PHASE_FOR_BIRTHDAY
+    };
+
+    const stateMockWithBirthday = {
+      ...initialStateMock,
+      phaseForBirthday: {
+        phase: "Waxing gibbous",
+        percentage: "85%"
+      }
+    };
+
+    expect(lunarCalculations(stateMockWithBirthday, action)).toEqual({
+      ...initialStateMock,
+      phaseForBirthday: null
     });
   });
 });
