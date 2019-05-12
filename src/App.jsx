@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import NextPhaseContainer from "./components/NextPhaseContainer";
 import CurrentPhaseContainer from "./components/CurrentPhaseContainer";
+import PhaseForBirthdayContainer from "./components/PhaseForBirthdayContainer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <section>
         <NextPhaseContainer />
         <CurrentPhaseContainer />
+        <PhaseForBirthdayContainer />
       </section>
     </div>
   );
