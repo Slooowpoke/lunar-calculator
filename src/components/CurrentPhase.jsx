@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import Button from "./ui/Button";
 
 const CurrentPhase = ({ phase, percentage, fetchCurrentPhaseForLocation }) => {
   if (phase) {
@@ -7,14 +8,9 @@ const CurrentPhase = ({ phase, percentage, fetchCurrentPhaseForLocation }) => {
   }
   return (
     <Fragment>
-      <small>
-        To get the current phase for your location, please click below.
-      </small>
-      <br />
-      <br />
-      <button onClick={fetchCurrentPhaseForLocation} type="button">
-        Get phase for current location
-      </button>
+      <Button onClick={fetchCurrentPhaseForLocation} type="button">
+        Click to get phase for your current location
+      </Button>
     </Fragment>
   );
 };
