@@ -1,6 +1,9 @@
 import { GET_NEXT_PHASE_SUCCESS } from "../actions/nextPhaseCalculations";
 import { GET_CURRENT_LUNAR_PHASE_SUCCESS } from "../actions/currentPhaseCalculations";
-import { GET_PHASE_FOR_BIRTHDAY_SUCCESS } from "../actions/phaseForBirthdayCalculations";
+import {
+  GET_PHASE_FOR_BIRTHDAY_SUCCESS,
+  RESET_PHASE_FOR_BIRTHDAY
+} from "../actions/phaseForBirthdayCalculations";
 
 const initialState = {
   nextLunarPhase: null,
@@ -59,6 +62,11 @@ const lunarCalculations = (state = initialState, action) => {
           phase: action.body.closestphase.phase,
           percentage: "100%"
         }
+      };
+    case RESET_PHASE_FOR_BIRTHDAY:
+      return {
+        ...state,
+        phaseForBirthday: null
       };
     default:
       return state;
