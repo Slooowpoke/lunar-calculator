@@ -5,7 +5,7 @@ import { GET_CURRENT_LUNAR_PHASE_SUCCESS } from "../../actions/currentPhaseCalcu
 const initialStateMock = {
   nextLunarPhase: null,
   phaseForCurrentLocation: null,
-  ageInLunarYears: null
+  phaseForBirthday: null
 };
 
 describe("lunar calculations reducer", () => {
