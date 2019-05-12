@@ -4,7 +4,7 @@ import { GET_CURRENT_LUNAR_PHASE_SUCCESS } from "../actions/currentPhaseCalculat
 const initialState = {
   nextLunarPhase: null,
   phaseForCurrentLocation: null,
-  ageInLunarYears: null
+  phaseForBirthday: null
 };
 
 const lunarCalculations = (state = initialState, action) => {
