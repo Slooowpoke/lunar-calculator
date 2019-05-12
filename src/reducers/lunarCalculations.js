@@ -2,7 +2,6 @@ import { GET_NEXT_PHASE_SUCCESS } from "../actions/nextPhaseCalculations";
 
 const initialState = {
   nextLunarPhase: null,
-  currentLunarPhase: null,
   phaseForCurrentLocation: null,
   ageInLunarYears: null
 };
