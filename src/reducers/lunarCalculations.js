@@ -1,8 +1,8 @@
 import { GET_NEXT_PHASE_SUCCESS } from "../actions/nextPhaseCalculations";
+import { GET_CURRENT_LUNAR_PHASE_SUCCESS } from "../actions/currentPhaseCalculations";
 
 const initialState = {
   nextLunarPhase: null,
-  currentLunarPhase: null,
   phaseForCurrentLocation: null,
   ageInLunarYears: null
 };
@@ -21,6 +21,26 @@ const lunarCalculations = (state = initialState, action) => {
         ...state,
         nextLunarPhase: action.body.phasedata[0]
       };
+    case GET_CURRENT_LUNAR_PHASE_SUCCESS:
+      if (action.body.curphase) {
+        // If we are in a transition phase, apply the curphase
+        return {
+          ...state,
+          phaseForCurrentLocation: {
+            phase: action.body.curphase,
+            percentage: action.body.fracillum
+          }
+        };
+      }
+      // Otherwise apply the closestphase from the API
+      return {
+        ...state,
+        phaseForCurrentLocation: {
+          phase: action.body.closestphase.phase,
+          percentage: "100%"
+        }
+      };
+
     default:
       return state;
   }
