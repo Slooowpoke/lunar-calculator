@@ -10,7 +10,8 @@ const CurrentPhase = ({ phase, percentage, fetchCurrentPhaseForLocation }) => {
       <small>
         To get the current phase for your location, please click below.
       </small>
-      <br /> <br />
+      <br />
+      <br />
       <button onClick={fetchCurrentPhaseForLocation} type="button">
         Get phase for current location
       </button>
