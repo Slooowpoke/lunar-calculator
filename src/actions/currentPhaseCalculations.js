@@ -36,9 +36,9 @@ export function getCurrentLunarPhaseRequest(date, position) {
       position
     });
     return fetch(
-      `https://api.usno.navy.mil/rstt/oneday?date=${date}&coords=
-      ${position.latitude},
-      ${position.longitude}`
+      `https://api.usno.navy.mil/rstt/oneday?date=${date}&coords=${
+        position.latitude
+      },${position.longitude}`
     )
       .then(res => res.json())
       .then(body => dispatch(getCurrentLunarPhaseSuccess(body)))
