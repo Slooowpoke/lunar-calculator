@@ -22,7 +22,7 @@ const lunarCalculations = (state = initialState, action) => {
         nextLunarPhase: action.body.phasedata[0]
       };
     case GET_CURRENT_LUNAR_PHASE_SUCCESS:
-      if(action.body.curphase){
+      if (action.body.curphase) {
         // If we are in a transition phase, apply the curphase
         return {
           ...state,
@@ -31,17 +31,15 @@ const lunarCalculations = (state = initialState, action) => {
             percentage: action.body.fracillum
           }
         };
-
-      }else{
-        // Otherwise apply the closestphase from the API
-        return {
-          ...state,
-          phaseForCurrentLocation: {
-            phase: action.body.closestphase.phase,
-            percentage: "100%"
-          }
-        };
       }
+      // Otherwise apply the closestphase from the API
+      return {
+        ...state,
+        phaseForCurrentLocation: {
+          phase: action.body.closestphase.phase,
+          percentage: "100%"
+        }
+      };
 
     default:
       return state;
