@@ -2,23 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import FormatDateToAmericanDateString from "../utils/FormatDateToAmericanDateString";
-import { getPhaseForBirthday, resetPhaseForBirthday } from "../actions/phaseForBirthdayCalculations";
+import {
+  getPhaseForBirthday,
+  resetPhaseForBirthday
+} from "../actions/phaseForBirthdayCalculations";
 import PhaseForBirthday from "./PhaseForBirthday";
 
 class PhaseForBirthdayContainer extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.fetchPhaseForDateOnLocation = this.fetchPhaseForDateOnLocation.bind(
       this
     );
   }
 
-  fetchPhaseForDateOnLocation = (inputDate) => {
+  fetchPhaseForDateOnLocation(inputDate) {
     const { props } = this;
 
     const date = new Date(inputDate);
     props.loadPhaseForBirthday(FormatDateToAmericanDateString(date));
   }
-
 
   render() {
     const { props } = this;
