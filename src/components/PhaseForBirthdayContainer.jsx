@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import FormatDateToAmericanDateString from "../utils/FormatDateToAmericanDateString";
-import { getPhaseForBirthday } from "../actions/phaseForBirthdayCalculations";
+import { getPhaseForBirthday, resetPhaseForBirthday } from "../actions/phaseForBirthdayCalculations";
 import PhaseForBirthday from "./PhaseForBirthday";
 
 class PhaseForBirthdayContainer extends React.Component {
@@ -21,13 +21,14 @@ class PhaseForBirthdayContainer extends React.Component {
 
 
   render() {
-    const { phaseForBirthday, resetPhaseForBirthday } = this.props;
+    const { props } = this;
+    const { phaseForBirthday } = props;
 
     return (
       <PhaseForBirthday
         {...phaseForBirthday}
         fetchPhaseForDateOnLocation={this.fetchPhaseForDateOnLocation}
-        resetPhaseForBirthday={resetPhaseForBirthday}
+        resetPhaseForBirthday={props.resetPhaseForBirthday}
       />
     );
   }
