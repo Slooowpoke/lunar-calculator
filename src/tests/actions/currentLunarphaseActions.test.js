@@ -106,9 +106,9 @@ describe("current lunar phase for location actions", () => {
     const mockPosition = { latitude: 10, longitude: 10 };
 
     fetchMock.getOnce(
-      `https://api.usno.navy.mil/rstt/oneday?date=${mockDate}&coords=
-      ${mockPosition.latitude},
-      ${mockPosition.longitude}`,
+      `https://api.usno.navy.mil/rstt/oneday?date=${mockDate}&coords=${
+        mockPosition.latitude
+      },${mockPosition.longitude}`,
       {
         body: fetchResultBody,
         headers: { "content-type": "application/json" }
